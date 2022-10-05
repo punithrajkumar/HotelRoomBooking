@@ -1,0 +1,22 @@
+.form {
+  background-color: whitesmoke;
+  box-sizing: border-box;
+}
+.form2 {
+  display: block;
+  justify-content: space-between;
+}
+.form2 h4 {
+  color: red;
+  background-color: white;
+}
+.formLayout {
+  box-sizing: border-box;
+  justify-content: center;
+  justify-items: center;
+  box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.2);
+
+  width: 100%;
+  padding: 2rem;
+  margin-top: 5rem;
+}
