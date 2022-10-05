@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/HotelRoomBooking/static/css/main.bdd83448.css",
+    "main.js": "/HotelRoomBooking/static/js/main.c4ce71cc.js",
+    "static/js/787.0e747f2c.chunk.js": "/HotelRoomBooking/static/js/787.0e747f2c.chunk.js",
+    "index.html": "/HotelRoomBooking/index.html",
+    "main.bdd83448.css.map": "/HotelRoomBooking/static/css/main.bdd83448.css.map",
+    "main.c4ce71cc.js.map": "/HotelRoomBooking/static/js/main.c4ce71cc.js.map",
+    "787.0e747f2c.chunk.js.map": "/HotelRoomBooking/static/js/787.0e747f2c.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.bdd83448.css",
+    "static/js/main.c4ce71cc.js"
+  ]
+}
