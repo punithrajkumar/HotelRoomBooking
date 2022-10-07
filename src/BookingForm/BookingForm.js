@@ -80,34 +80,15 @@ const BookingForm = () => {
 
   const submitHandler = (event) => {
     event.preventDefault();
-    const getFormValue = document.getElementById("form");
-    console.log("submitted");
-    console.log(getFormValue);
-    var formData = new FormData();
-    console.log(formData);
+    const data = new FormData(event.target);
+    console.log(Object.fromEntries(data.entries()));
+    // const getFormValue = document.getElementById("form");
+    // console.log("submitted");
+    // console.log(getFormValue);
+    // var formData = new FormData();
+    // console.log(formData);
 
-    // totalData = [
-    //   {
-    //     inputValue,
-    //     emailValue,
-    //     phoneNumberValue,
-    //     addressValue,
-    //     roomType,
-    //     totalCost,
-    //   },
-    // ];
-    console.log(totalData);
-    // let enteredAllotment = allotmentRef.current.value;
-    // let enteredAllotmentNumber = +enteredAllotment;
-
-    // if (
-    //   enteredAllotment.trim().length === 0 ||
-    //   enteredAllotmentNumber > 3 ||
-    //   enteredAllotmentNumber < 1
-    // ) {
-    //   setAllotmentIsValid(false);
-    //   return;
-    // }
+    // console.log(totalData);
   };
 
   return (
@@ -152,6 +133,7 @@ const BookingForm = () => {
               <input
                 type="text"
                 id="phone"
+                name="phone"
                 pattern="\d*"
                 ref={phoneRef}
                 value={phoneNumberValue}
@@ -204,7 +186,7 @@ const BookingForm = () => {
                 Calculate Cost
               </button>
               &nbsp;
-              <button type="submit" value="submit" className="btn btn-success">
+              <button type="submit" className="btn btn-success">
                 Submit
               </button>
             </form>
