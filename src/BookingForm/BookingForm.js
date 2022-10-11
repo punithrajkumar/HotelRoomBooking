@@ -44,7 +44,7 @@ const BookingForm = () => {
         console.log("Total number of single bed room is 1");
         totalCost = 700 * enteredNights * enteredAllotmentNumber;
         console.log("Total Cost", totalCost);
-        alert(totalCost);
+        alert("Total Cost "+totalCost);
         setAllotmentIsValid(true);
       } else {
         let count = Math.ceil(enteredAllotmentNumber / 2);
@@ -52,7 +52,7 @@ const BookingForm = () => {
         setRoomIsValid(true);
         totalCost = 700 * enteredNights * count;
         console.log("Total Cost :", totalCost);
-        alert(totalCost);
+        alert("Total Cost "+totalCost);
         setAllotmentIsValid(true);
       }
     }
@@ -64,7 +64,7 @@ const BookingForm = () => {
         console.log(enteredNights);
         totalCost = 1200 * enteredNights * enteredAllotmentNumber;
         console.log("Total Cost", totalCost);
-        alert(totalCost);
+        alert("Total Cost "+totalCost);
         setAllotmentIsValid(true);
       } else {
         let count = Math.ceil(enteredAllotmentNumber / 3);
@@ -72,7 +72,7 @@ const BookingForm = () => {
         setRoomIsValid(true);
         totalCost = 1200 * enteredNights * count;
         console.log("Total Cost", totalCost);
-        alert(totalCost);
+        alert("Total Cost "+totalCost);
         setAllotmentIsValid(true);
       }
     }
@@ -83,7 +83,7 @@ const BookingForm = () => {
         console.log("Total number of  executive room is 1");
         totalCost = 1400 * enteredAllotmentNumber * enteredNights;
         console.log("Total Cost", totalCost);
-        alert(totalCost);
+        alert("Total Cost "+totalCost);
         setAllotmentIsValid(true);
       } else {
         let count = Math.ceil(enteredAllotmentNumber / 3);
@@ -91,7 +91,7 @@ const BookingForm = () => {
         setRoomIsValid(true);
         totalCost = 1400 * enteredNights * count;
         console.log("Total Cost", totalCost);
-        alert(totalCost);
+        alert("Total Cost "+totalCost);
         setAllotmentIsValid(true);
       }
     }
