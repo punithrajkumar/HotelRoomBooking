@@ -6,7 +6,6 @@ import PhoneCode from "./PhoneCode";
 const BookingForm = () => {
   var roomType;
   var totalCost;
-  var totalData = [];
 
   const nameRef = useRef();
   const emailRef = useRef();
@@ -76,13 +75,12 @@ const BookingForm = () => {
         return 0;
       }
     }
-
-    
   };
 
   const submitHandler = (event) => {
     event.preventDefault();
     const data = new FormData(event.target);
+
     console.log(Object.fromEntries(data.entries()));
     // const getFormValue = document.getElementById("form");
     // console.log("submitted");
