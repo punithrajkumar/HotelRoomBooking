@@ -11,7 +11,7 @@
 .logo img {
   height: 3em;
   border-radius: 50%;
-  display: inline-flexbox;
+  display: inline;
 }
 .logo span {
   font-size: large;

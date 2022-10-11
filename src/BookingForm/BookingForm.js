@@ -76,6 +76,8 @@ const BookingForm = () => {
         return 0;
       }
     }
+
+    
   };
 
   const submitHandler = (event) => {
