@@ -14,7 +14,7 @@ const BookingForm = () => {
   const allotmentRef = useRef();
   const nightRef = useRef();
 
-  const [totalCostValue, setTotalCostValue] = useState(1);
+  
   const [inputValue, setInputValue] = useState();
   const [emailValue, setEmailValue] = useState();
   const [phoneNumberValue, setPhoneNumberValue] = useState();
