@@ -14,12 +14,11 @@ const BookingForm = () => {
   const allotmentRef = useRef();
   const nightRef = useRef();
 
-  
   const [inputValue, setInputValue] = useState();
   const [emailValue, setEmailValue] = useState();
   const [phoneNumberValue, setPhoneNumberValue] = useState();
   const [addressValue, setAddressValue] = useState();
-  const [allotmentIsValid, setAllotmentIsValid] = useState(true);
+  const [allotmentIsValid, setAllotmentIsValid] = useState(false);
   const [roomIsValid, setRoomIsValid] = useState(false);
 
   const [roomValue, setRoomValue] = useState();
@@ -27,52 +26,73 @@ const BookingForm = () => {
   const handleChange = (e) => {
     var getRoomType = e.target.value;
     roomType = getRoomType;
-    console.log(roomType);
+    console.log("Room type : ", roomType);
   };
 
   const calculateCost = (event) => {
     let enteredAllotment = allotmentRef.current.value;
     let enteredAllotmentNumber = +enteredAllotment;
     let enteredNights = nightRef.current.value;
-    console.log(enteredNights);
-    console.log(enteredAllotment);
-    console.log(roomType);
+    console.log("Number of Person", enteredAllotment);
+    console.log("Number of nights", enteredNights);
+    console.log("Room type for calculation: ", roomType);
 
-    if (
-      enteredAllotment.trim().length === 0 ||
-      enteredAllotmentNumber > 3 ||
-      enteredAllotmentNumber < 1 ||
-      enteredNights <= 0
-    ) {
-      setAllotmentIsValid(false);
-      setRoomIsValid(false);
-
-      return;
-    } else {
-      if (roomType === "Single Bed Room") {
-        console.log("calculation for single bed room");
-        totalCost = 700 * enteredNights * enteredAllotmentNumber;
-
-        console.log(totalCost);
-
+    //Single Room
+    if (roomType === "Single Bed Room") {
+      if (enteredAllotmentNumber === 2) {
         setRoomIsValid(true);
-        return totalCost;
-      } else if (roomType === "Double Bed Room") {
-        console.log("calculation for double bed room");
+        console.log("Total number of single bed room is 1");
+        totalCost = 700 * enteredNights * enteredAllotmentNumber;
+        console.log("Total Cost", totalCost);
+        alert(totalCost);
+        setAllotmentIsValid(true);
+      } else {
+        let count = Math.ceil(enteredAllotmentNumber / 2);
+        console.log("Total number of single bed room is ", count);
+        setRoomIsValid(true);
+        totalCost = 700 * enteredNights * count;
+        console.log("Total Cost :", totalCost);
+        alert(totalCost);
+        setAllotmentIsValid(true);
+      }
+    }
+    //Double Bed Room
+    else if (roomType === "Double Bed Room") {
+      if (enteredAllotmentNumber === 3) {
+        setRoomIsValid(true);
+        console.log("Total number of double bed room is 1");
         console.log(enteredNights);
         totalCost = 1200 * enteredNights * enteredAllotmentNumber;
-        console.log(totalCost);
-        setRoomIsValid(true);
-        return totalCost;
-      } else if (roomType === "Executive Room") {
-        console.log("calculation for executive room");
-        totalCost = 1400 * enteredAllotmentNumber * enteredNights;
-        console.log(totalCost);
-        setRoomIsValid(true);
-        return totalCost;
+        console.log("Total Cost", totalCost);
+        alert(totalCost);
+        setAllotmentIsValid(true);
       } else {
-        console.log("Enter proper value");
-        return 0;
+        let count = Math.ceil(enteredAllotmentNumber / 3);
+        console.log("Total number of double bed room is ", count);
+        setRoomIsValid(true);
+        totalCost = 1200 * enteredNights * count;
+        console.log("Total Cost", totalCost);
+        alert(totalCost);
+        setAllotmentIsValid(true);
+      }
+    }
+    //Executive Room
+    else if (roomType === "Executive Room") {
+      if (enteredAllotmentNumber === 3) {
+        setRoomIsValid(true);
+        console.log("Total number of  executive room is 1");
+        totalCost = 1400 * enteredAllotmentNumber * enteredNights;
+        console.log("Total Cost", totalCost);
+        alert(totalCost);
+        setAllotmentIsValid(true);
+      } else {
+        let count = Math.ceil(enteredAllotmentNumber / 3);
+        console.log("Total number of executive room is ", count);
+        setRoomIsValid(true);
+        totalCost = 1400 * enteredNights * count;
+        console.log("Total Cost", totalCost);
+        alert(totalCost);
+        setAllotmentIsValid(true);
       }
     }
   };
@@ -80,15 +100,9 @@ const BookingForm = () => {
   const submitHandler = (event) => {
     event.preventDefault();
     const data = new FormData(event.target);
-
-    console.log(Object.fromEntries(data.entries()));
-    // const getFormValue = document.getElementById("form");
-    // console.log("submitted");
-    // console.log(getFormValue);
-    // var formData = new FormData();
-    // console.log(formData);
-
-    // console.log(totalData);
+    const formDataSubmit = Object.fromEntries(data.entries());
+    console.log(formDataSubmit);
+    alert(JSON.stringify(formDataSubmit));
   };
 
   return (
@@ -151,7 +165,7 @@ const BookingForm = () => {
               <br />
               <label htmlFor="allotment">Number of Person Staying :</label>
               &nbsp;
-              <input type="number" id="allotment" max="2" ref={allotmentRef} />
+              <input type="number" id="allotment" ref={allotmentRef} />
               <br />
               <label htmlFor="room_type">Room Type :</label>&nbsp;
               <select
