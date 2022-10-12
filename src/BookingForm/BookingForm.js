@@ -97,6 +97,7 @@ const BookingForm = () => {
     }
   };
 
+  //Submitting Form
   const submitHandler = (event) => {
     event.preventDefault();
     const data = new FormData(event.target);
